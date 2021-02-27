@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+    <Tracking>
+        <ImageTarget name="Ferret_Brazalete" size="10.000000 10.000000"/>
+        <ImageTarget name="Arma_4.Top" size="0.300000 0.300000"/>
+        <ImageTarget name="Arma_4.Back" size="0.300000 0.300000"/>
+        <ImageTarget name="Arma_4.Left" size="0.300000 0.300000"/>
+        <ImageTarget name="Arma_4.Bottom" size="0.300000 0.300000"/>
+        <ImageTarget name="Arma_4.Right" size="0.300000 0.300000"/>
+        <ImageTarget name="Arma_4.Front" size="0.300000 0.300000"/>
+        <ImageTarget name="Arma_3.Top" size="0.500000 0.500000"/>
+        <ImageTarget name="Arma_3.Back" size="0.500000 0.500000"/>
+        <ImageTarget name="Arma_3.Left" size="0.500000 0.500000"/>
+        <ImageTarget name="Arma_3.Bottom" size="0.500000 0.500000"/>
+        <ImageTarget name="Arma_3.Right" size="0.500000 0.500000"/>
+        <ImageTarget name="Arma_3.Front" size="0.500000 0.500000"/>
+        <ImageTarget name="Arma_2.Top" size="1.000000 1.000000"/>
+        <ImageTarget name="Arma_2.Back" size="1.000000 1.000000"/>
+        <ImageTarget name="Arma_2.Left" size="1.000000 1.000000"/>
+        <ImageTarget name="Arma_2.Bottom" size="1.000000 1.000000"/>
+        <ImageTarget name="Arma_2.Right" size="1.000000 1.000000"/>
+        <ImageTarget name="Arma_2.Front" size="1.000000 1.000000"/>
+        <ImageTarget name="Arma_1.Top" size="10.000000 10.000000"/>
+        <ImageTarget name="Arma_1.Back" size="10.000000 10.000000"/>
+        <ImageTarget name="Arma_1.Left" size="10.000000 10.000000"/>
+        <ImageTarget name="Arma_1.Bottom" size="10.000000 10.000000"/>
+        <ImageTarget name="Arma_1.Right" size="10.000000 10.000000"/>
+        <ImageTarget name="Arma_1.Front" size="10.000000 10.000000"/>
+        <MultiTarget name="Arma_4">
+            <Part name="Arma_4.Left" translation="-0.15000000596046448 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Arma_4.Right" translation="0.15000000596046448 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Arma_4.Front" translation="0 0 0.15000000596046448" rotation="AD: 1 0 0 0"/>
+            <Part name="Arma_4.Back" translation="0 0 -0.15000000596046448" rotation="AD: 0 1 0 180"/>
+            <Part name="Arma_4.Top" translation="0 0.15000000596046448 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Arma_4.Bottom" translation="0 -0.15000000596046448 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+        <MultiTarget name="Arma_3">
+            <Part name="Arma_3.Left" translation="-0.25 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Arma_3.Right" translation="0.25 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Arma_3.Front" translation="0 0 0.25" rotation="AD: 1 0 0 0"/>
+            <Part name="Arma_3.Back" translation="0 0 -0.25" rotation="AD: 0 1 0 180"/>
+            <Part name="Arma_3.Top" translation="0 0.25 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Arma_3.Bottom" translation="0 -0.25 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+        <MultiTarget name="Arma_2">
+            <Part name="Arma_2.Left" translation="-0.5 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Arma_2.Right" translation="0.5 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Arma_2.Front" translation="0 0 0.5" rotation="AD: 1 0 0 0"/>
+            <Part name="Arma_2.Back" translation="0 0 -0.5" rotation="AD: 0 1 0 180"/>
+            <Part name="Arma_2.Top" translation="0 0.5 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Arma_2.Bottom" translation="0 -0.5 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+        <MultiTarget name="Arma_1">
+            <Part name="Arma_1.Left" translation="-5.0 0 0" rotation="AD: 0 1 0 -90"/>
+            <Part name="Arma_1.Right" translation="5.0 0 0" rotation="AD: 0 1 0 90"/>
+            <Part name="Arma_1.Front" translation="0 0 5.0" rotation="AD: 1 0 0 0"/>
+            <Part name="Arma_1.Back" translation="0 0 -5.0" rotation="AD: 0 1 0 180"/>
+            <Part name="Arma_1.Top" translation="0 5.0 0" rotation="AD: 1 0 0 -90"/>
+            <Part name="Arma_1.Bottom" translation="0 -5.0 0" rotation="AD: 1 0 0 90"/>
+        </MultiTarget>
+    </Tracking>
+</QCARConfig>
