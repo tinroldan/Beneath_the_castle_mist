@@ -14,14 +14,14 @@ public class Vida : MonoBehaviour,IColision
         barra_vida.fillAmount = valor_vida;
     }
     public void Impacto(){
-
+        
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            barra_vida.fillAmount -= 1;
+            barra_vida.fillAmount -= 0.1f;
         }
     }
 }
