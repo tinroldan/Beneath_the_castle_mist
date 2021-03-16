@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawners
   - cubito
+  - enemy
   layers:
   - Default
   - TransparentFX

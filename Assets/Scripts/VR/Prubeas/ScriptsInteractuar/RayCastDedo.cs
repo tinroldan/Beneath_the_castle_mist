@@ -4,18 +4,38 @@ using UnityEngine;
 
 public class RayCastDedo : MonoBehaviour
 {
+    [SerializeField]
+    float distanceRayCast;
 
     RaycastHit hit;
-    // Start is called before the first frame update
+
+    [SerializeField]
+    GameObject coreRayCast;
     void Start()
     {
-        
-        
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1, Color.green);
+        bool isHit = Physics.Raycast(coreRayCast.transform.position, coreRayCast.transform.forward, out hit, distanceRayCast);
+
+        if (isHit)
+        {
+            try
+            {
+                hit.transform.GetComponent<MenuAR>().OnScreen();
+            }
+            catch
+            {
+                //no haga nada
+            }
+            Debug.DrawRay(coreRayCast.transform.position, coreRayCast.transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            
+        }
+        else
+        {
+            Debug.DrawRay(coreRayCast.transform.position, coreRayCast.transform.TransformDirection(Vector3.forward) * distanceRayCast, Color.red);
+
+        }
     }
 }

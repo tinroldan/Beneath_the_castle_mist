@@ -5,45 +5,60 @@ using UnityEngine;
 public class RayCastArma : MonoBehaviour
 {
     [SerializeField]
-    float distanceRayCast;
+    float distanceRayCast, shootForce, fireRate;
+    float m_FireRate;
 
     RaycastHit hit;
 
-    // Start is called before the first frame update
+    [SerializeField]
+    GameObject shootprefab, coreRayCast;
+
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
 
-        bool isHit = Physics.Raycast(transform.position, transform.forward, out hit, distanceRayCast);
+        bool isHit = Physics.Raycast(coreRayCast.transform.position, coreRayCast.transform.forward, out hit, distanceRayCast);
 
-        if(isHit)
+        if (isHit && hit.transform.gameObject.tag == "enemy")
         {
-            print("Objeto Golpeado: "+hit.transform.gameObject.tag);
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            Debug.DrawRay(coreRayCast.transform.position, coreRayCast.transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            if (shootprefab != null)
+            {
+                if(m_FireRate>0)
+                {
+                    m_FireRate -= Time.deltaTime;
+                }
+                else if(m_FireRate<=0)
+                {
+                    Shoot();
+                    m_FireRate = fireRate;
+                }
+            }
+            else
+            {
+                print("Esta arma no tiene un objeto para disparar");
+
+            }
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * distanceRayCast, Color.red);
+            Debug.DrawRay(coreRayCast.transform.position, coreRayCast.transform.TransformDirection(Vector3.forward) * distanceRayCast, Color.red);
 
         }
 
-        //if (Physics.Raycast(transform.position, Vector3.forward, out hit, distanceRayCast))
-        //{
-        //    print("objeto golpeado: " + hit.transform.tag);
-        //    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * distanceRayCast, Color.green);
 
-        //}
-        //else
-        //{
-        //    Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * distanceRayCast, Color.red);
+    }
 
-        //}
-
+    void Shoot()
+    {
+        GameObject shoot = Instantiate(shootprefab, coreRayCast.transform.position, coreRayCast.transform.rotation);
+        Rigidbody rb = shoot.GetComponent<Rigidbody>();
+        rb.AddForce(coreRayCast.transform.forward * shootForce, ForceMode.Impulse);
 
     }
 }
