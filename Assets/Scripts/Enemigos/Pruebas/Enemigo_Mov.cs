@@ -9,7 +9,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     {
         public UnityEngine.AI.NavMeshAgent agent { get; private set; }             // the navmesh agent required for the path finding
         public ThirdPersonCharacter character { get; private set; } // the character we are controlling
-        public GameObject target;                                    // target to aim for
+        public GameObject target;
+        public Vida vida_enemigo;// target to aim for
 
 
         private void Start()
@@ -24,15 +25,27 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        private void Update()
+        public void Update()
         {
             if (target != null)
                 agent.SetDestination(target.transform.position);
-
-            if (agent.remainingDistance > agent.stoppingDistance)
-                character.Move(agent.desiredVelocity, false, false);
+            if(vida_enemigo.barra_vida.fillAmount > 0)
+            {
+                if (agent.remainingDistance > agent.stoppingDistance)
+                {
+                    character.Move(agent.desiredVelocity, false, false);
+                }
+                else
+                {
+                    character.Move(Vector3.zero, false, false);
+                }
+            }
             else
-                character.Move(Vector3.zero, false, false);
+            {
+                agent.Stop();
+            }
+            
+               
         }
 
 
