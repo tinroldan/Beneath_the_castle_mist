@@ -278,7 +278,7 @@ NavMeshAgent:
   m_Acceleration: 3
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.2
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -349,6 +349,7 @@ MonoBehaviour:
   jugador: {fileID: 0}
   enemigo: {fileID: 2021088527774765027}
   vida_enemigo: {fileID: 3537391128514103571}
+  distancia: 3.8
 --- !u!1 &3788325052815790001
 GameObject:
   m_ObjectHideFlags: 0

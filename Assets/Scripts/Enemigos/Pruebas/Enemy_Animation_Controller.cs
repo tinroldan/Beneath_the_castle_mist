@@ -8,6 +8,7 @@ public class Enemy_Animation_Controller : MonoBehaviour
     protected Animator animator;
     protected float tiempo;
     public Vida vida_enemigo;
+    public float distancia;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class Enemy_Animation_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(enemigo.transform.position, jugador.transform.position)<2f&&vida_enemigo.barra_vida.fillAmount>0){
+        if(Vector3.Distance(enemigo.transform.position, jugador.transform.position)< distancia && vida_enemigo.barra_vida.fillAmount>0){
             tiempo += Time.deltaTime;
 
             animator.SetBool("Walking", false);
@@ -30,7 +31,7 @@ public class Enemy_Animation_Controller : MonoBehaviour
             }
         }
         
-        else if(Vector3.Distance(enemigo.transform.position, jugador.transform.position) > 2f && vida_enemigo.barra_vida.fillAmount > 0)
+        else if(Vector3.Distance(enemigo.transform.position, jugador.transform.position) > distancia && vida_enemigo.barra_vida.fillAmount > 0)
         {
             animator.SetBool("Walking", true);
         }
