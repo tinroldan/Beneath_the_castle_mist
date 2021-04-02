@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Vida : MonoBehaviour,IColision
 {
-    [SerializeField] Image barra_vida;
+     [SerializeField] public Image barra_vida;
     public float valor_vida;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,10 @@ public class Vida : MonoBehaviour,IColision
         if (Input.GetKeyDown(KeyCode.Space))
         {
             barra_vida.fillAmount -= 0.1f;
+        }
+        if(barra_vida.fillAmount <= 0)
+        {
+            Destroy(gameObject, 5f);
         }
     }
 }
