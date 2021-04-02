@@ -14,7 +14,7 @@ public class MenuAR : MonoBehaviour
         screenMain.SetActive(false);
 
     }
-    public void OnScreen()
+    public void OnEvent()
     {
         screenMain.SetActive(true);
         foreach (var item in otherScreens)

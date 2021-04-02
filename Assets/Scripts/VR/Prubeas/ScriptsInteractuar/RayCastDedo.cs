@@ -23,11 +23,21 @@ public class RayCastDedo : MonoBehaviour
         {
             try
             {
-                hit.transform.GetComponent<MenuAR>().OnScreen();
+                hit.transform.GetComponent<MenuAR>().OnEvent();
             }
             catch
             {
-                //no haga nada
+                //no haga nada xD
+            }
+
+            try
+            {
+                hit.transform.GetComponent<EventsButtonsAR>().OnEvent();
+
+            }
+            catch
+            {
+                //no haga nada xD
             }
             Debug.DrawRay(coreRayCast.transform.position, coreRayCast.transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             

@@ -70,15 +70,21 @@ public class CustomAR : DefaultTrackableEventHandler, ITrackableEventHandler
 
     #region PROTECTED_METHODS
 
+    [SerializeField]
+    GunsManager gunsMG;
+    
     protected virtual void OnTrackingFound()
     {
-        StopCoroutine(HideTarget());
-        print("Objeto encontrado");
-
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
 
+        if (gunsMG != null)
+        {
+            gunsMG.OnMenuAR(true);
+            gunsMG.UpdateGun();
+
+        }
         // Enable rendering:
         foreach (var component in rendererComponents)
             component.enabled = true;
@@ -92,11 +98,30 @@ public class CustomAR : DefaultTrackableEventHandler, ITrackableEventHandler
             component.enabled = true;
     }
 
-
+    
+     
     protected virtual void OnTrackingLost()
     {
-        StartCoroutine(HideTarget());
-        print("Objeto perdido");
+        var rendererComponents = GetComponentsInChildren<Renderer>(true);
+        var colliderComponents = GetComponentsInChildren<Collider>(true);
+        var canvasComponents = GetComponentsInChildren<Canvas>(true);
+
+        if (gunsMG != null)
+        {
+            gunsMG.OnMenuAR(false);
+            gunsMG.UpdateGun();
+        }
+        // Disable rendering:
+        foreach (var component in rendererComponents)
+            component.enabled = false;
+
+        // Disable colliders:
+        foreach (var component in colliderComponents)
+            component.enabled = false;
+
+        // Disable canvas':
+        foreach (var component in canvasComponents)
+            component.enabled = false;
     }
 
 
@@ -106,6 +131,8 @@ public class CustomAR : DefaultTrackableEventHandler, ITrackableEventHandler
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
+
+        
 
         // Disable rendering:
         foreach (var component in rendererComponents)
