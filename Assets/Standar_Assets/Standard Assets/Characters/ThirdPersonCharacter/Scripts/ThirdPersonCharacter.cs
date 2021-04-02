@@ -45,7 +45,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-
+			crouch = false; //MODIFICACION FRODO
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
@@ -68,8 +68,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				HandleAirborneMovement();
 			}
 
-			ScaleCapsuleForCrouching(crouch);
-			PreventStandingInLowHeadroom();
+			//ScaleCapsuleForCrouching(crouch);
+			//PreventStandingInLowHeadroom();
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
@@ -78,6 +78,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		void ScaleCapsuleForCrouching(bool crouch)
 		{
+			crouch = false;//MODIFICACION FRODO
 			if (m_IsGrounded && crouch)
 			{
 				if (m_Crouching) return;
